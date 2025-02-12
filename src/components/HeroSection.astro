@@ -1,0 +1,72 @@
+---
+import angleLeft from "../assets/images/icon-angle-left.svg";
+import angleRight from "../assets/images/icon-angle-right.svg";
+import arrow from "../assets/images/icon-arrow.svg";
+---
+
+<section>
+    <div class="relative">
+        <img id="slider-image" alt="Slider Image" loading="lazy" />
+        <div class="flex absolute bottom-0 right-0">
+            <button id="prev-btn" class="bg-black px-6 py-4">
+                <img class="w-2 h-4.5" src={angleLeft.src} alt="Previous" />
+            </button>
+            <button id="next-btn" class="bg-black px-6 py-4">
+                <img class="w-2 h-4.5" src={angleRight.src} alt="Next" />
+            </button>
+        </div>
+    </div>
+    <div class="flex flex-col">
+        <h2>Discover innovative ways to decorate</h2>
+        <p>
+            We provide unmatched quality, comfort, and style for property owners
+            across the country. Our experts combine form and function in
+            bringing your vision to life. Create a room in your own style with
+            our collection and make your property a reflection of you and what
+            you love.
+        </p>
+        <div class="flex items-center">
+            <a>Shop now</a>
+            <img src={arrow.src} alt="Arrow"/>
+        </div>
+    </div>
+</section>
+
+<script>
+    import hero1M from "../assets/images/mobile-image-hero-1.jpg";
+    import hero2M from "../assets/images/mobile-image-hero-2.jpg";
+    import hero3M from "../assets/images/mobile-image-hero-3.jpg";
+    import hero1D from "../assets/images/desktop-image-hero-1.jpg";
+    import hero2D from "../assets/images/desktop-image-hero-2.jpg";
+    import hero3D from "../assets/images/desktop-image-hero-3.jpg";
+
+    const mobileImages = [hero1M.src, hero2M.src, hero3M.src];
+    const desktopImages = [hero1D.src, hero2D.src, hero3D.src];
+
+    let currentIndex: number = 0;
+
+    function updateImage() {
+        const sliderImage = document.getElementById(
+            "slider-image",
+        ) as HTMLImageElement;
+        const isMobile = window.innerWidth < 768;
+        if (sliderImage)
+            sliderImage.src = isMobile
+                ? mobileImages[currentIndex]
+                : desktopImages[currentIndex];
+    }
+
+    document.getElementById("prev-btn")?.addEventListener("click", () => {
+        currentIndex =
+            (currentIndex - 1 + mobileImages.length) % mobileImages.length;
+        updateImage();
+    });
+
+    document.getElementById("next-btn")?.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % mobileImages.length;
+        updateImage();
+    });
+
+    window.addEventListener("resize", updateImage);
+    window.addEventListener("DOMContentLoaded", updateImage);
+</script>
