@@ -1,87 +1,79 @@
 ---
 import angleLeft from "../assets/images/icon-angle-left.svg";
 import angleRight from "../assets/images/icon-angle-right.svg";
-import arrow from "../assets/images/icon-arrow.svg";
 import aboutDark from "../assets/images/image-about-dark.jpg";
 import aboutLight from "../assets/images/image-about-light.jpg";;
 ---
 
-<section class="flex h-2/3">
+<section class="flex flex-col md:flex-row h-auto md:h-2/3 relative">
+  <div class="w-full md:w-2/3 h-64 md:h-auto relative">
+    <img id="slider-image" alt="Slider Image" loading="lazy" class="w-full h-full object-cover" />
+    <div class="absolute bottom-0 right-0 flex md:hidden z-10">
+      <button id="prev-btn-mobile" class="bg-black hover:bg-veryDarkGray px-4 py-3 transition-colors">
+        <img class="w-[11px] h-6" src={angleLeft.src} alt="Previous" />
+      </button>
+      <button id="next-btn-mobile" class="bg-black hover:bg-veryDarkGray px-4 py-3 transition-colors">
+        <img class="w-[11px] h-6" src={angleRight.src} alt="Next" />
+      </button>
+    </div>
+  </div>
 
-    <div class="w-2/3">
-        <img id="slider-image" alt="Slider Image" loading="lazy"  class="w-full h-full"/>
+  <div class="relative flex flex-col justify-center p-8 w-full md:w-1/3">
+    <div class="flex flex-col self-center max-w-[400px] max-h-[300px]">
+
+      <h2 id="hero-title" class="text-xl lg:text-3xl 2xl:text-5xl font-bold">Discover innovative ways to decorate</h2>
+      <p id="hero-text" class="text-xs xl:text-md 2xl:text-xl text-darkGray mt-2">
+        We provide unmatched quality, comfort, and style for property owners
+        across the country. Our experts combine form and function in
+        bringing your vision to life. Create a room in your own style with
+        our collection and make your property a reflection of you and what
+        you love.
+      </p>
+
+      <div class="flex items-center gap-4 mt-6 group cursor-pointer transition-colors duration-300">
+        <a class="uppercase tracking-[5px] text-xs lg:tracking-[10px] lg:text-md 2xl:text-xl text-black group-hover:text-gray-500 transition-colors duration-300">
+          Shop now
+        </a>
+        <svg class="w-6 h-2 lg:w-10 lg:h-3 fill-current text-black group-hover:text-gray-500 transition-colors duration-300" viewBox="0 0 40 12" xmlns="http://www.w3.org/2000/svg">
+          <path d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z" fill="currentColor" fill-rule="nonzero" />
+        </svg>
+      </div>
+
     </div>
 
-    <div class="relative flex flex-col justify-center p-8 w-1/3">
-
-        <div class="flex flex-col self-center max-w-[400px] max-h-[300px]">
-            <h2 id="hero-title" class="text-3xl font-bold">Discover innovative ways to decorate</h2>
-            <p id="hero-text" class="text-xs text-darkGray mt-2">
-                We provide unmatched quality, comfort, and style for property owners
-                across the country. Our experts combine form and function in
-                bringing your vision to life. Create a room in your own style with
-                our collection and make your property a reflection of you and what
-                you love.
-            </p>
-
-            <div class="flex items-center gap-4 mt-6 group cursor-pointer transition-colors duration-300">
-                <a class="uppercase tracking-[10px] text-black group-hover:text-gray-500 transition-colors duration-300">
-                  Shop now
-                </a>
-                <svg
-                  class="w-10 h-3 fill-current text-black group-hover:text-gray-500 transition-colors duration-300"
-                  viewBox="0 0 40 12"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M34.05 0l5.481 5.527h.008v.008L40 6l-.461.465v.063l-.062-.001L34.049 12l-.662-.668 4.765-4.805H0v-1h38.206l-4.82-4.86L34.05 0z"
-                    fill="currentColor"
-                    fill-rule="nonzero"
-                  />
-                </svg>
-              </div>
-
-        </div>
-
-        <div class="flex absolute bottom-0 left-0">
-            <button
-              id="prev-btn"
-              class="bg-black hover:bg-veryDarkGray px-[0.845rem] py-2.5 lg:px-[1.175rem] lg:py-4 xl:px-[1.72rem] xl:py-5.5 2xl:px-[3.44rem] 2xl:py-7
-              transition-colors duration-300 ease-in-out cursor-pointer" 
-            >
-              <img class="w-[11px] h-6" src={angleLeft.src} alt="Previous" />
-            </button>
-          
-            <button
-              id="next-btn"
-              class="bg-black hover:bg-veryDarkGray px-[0.845rem] py-2.5 lg:px-[1.175rem] lg:py-4 xl:px-[1.72rem] xl:py-5.5 2xl:px-[3.44rem] 2xl:py-7
-              transition-colors duration-300 ease-in-out cursor-pointer"
-            >
-              <img class="w-[11px] h-6" src={angleRight.src} alt="Next" />
-            </button>
-          </div>
-          
+    <div class="hidden md:flex absolute bottom-0 left-0">
+      <button
+        id="prev-btn"
+        class="bg-black hover:bg-veryDarkGray px-[0.65rem] py-2 lg:px-[1rem] lg:py-4 xl:px-[1.54rem] xl:py-6
+        transition-colors duration-300 ease-in-out cursor-pointer" 
+      >
+        <img class="w-[11px] h-6" src={angleLeft.src} alt="Previous" />
+      </button>
+    
+      <button
+        id="next-btn"
+        class="bg-black hover:bg-veryDarkGray px-[0.65rem] py-2 lg:px-[1rem] lg:py-4 xl:px-[1.54rem] xl:py-6
+        transition-colors duration-300 ease-in-out cursor-pointer"
+      >
+        <img class="w-[11px] h-6" src={angleRight.src} alt="Next" />
+      </button>
     </div>
-
+  </div>
 </section>
 
-<section class="h-1/3 grid grid-cols-4 gap-4 items-center">
-
-    <div class="col-span-1 w-full h-full">
-      <img src={aboutDark.src} alt="About Dark" class="w-full h-full" />
-    </div>
-  
-    <div class="col-span-2 flex flex-col justify-center p-8">
-      <h2 class="text-xl font-bold mb-2 uppercase tracking-[10px]">About our furniture</h2>
-      <p class="text-xs text-darkGray w-[80%]">
-        Our multifunctional collection blends design and function to suit your individual taste. Make each room unique, or pick a cohesive theme that best express your interests and what inspires you. Find the furniture pieces you need, from traditional to contemporary styles or anything in between. Product specialists are available to help you create your dream space.
-      </p>
-    </div>
-  
-    <div class="col-span-1 w-full h-full">
-      <img src={aboutLight.src} alt="About Light" class="w-full h-full" />
-    </div>
-
+<section class="h-auto md:h-1/3 grid grid-cols-1 md:grid-cols-4 items-center">
+  <div class="col-span-1 w-full h-full">
+    <img src={aboutDark.src} alt="About Dark" class="w-full h-full object-cover" />
+  </div>
+  <div class="col-span-2 flex flex-col justify-center p-8">
+    <h2 class="text-xl font-bold mb-2 uppercase tracking-[10px]">About our furniture</h2>
+    <p class="text-xs text-darkGray w-full md:w-[80%]">
+      Our multifunctional collection blends design and function to suit your individual taste. Make each room unique, or pick a cohesive theme that best express your interests and what inspires you. Find the furniture pieces you need, from traditional to contemporary styles or anything in between. Product specialists are available to help you create your dream space.
+    </p>
+  </div>
+  <div class="col-span-1 w-full h-full">
+    <img src={aboutLight.src} alt="About Light" class="w-full h-full object-cover" />
+  </div>
 </section>
 
 <script>
@@ -136,6 +128,15 @@ import aboutLight from "../assets/images/image-about-light.jpg";;
     });
 
     document.getElementById("next-btn")?.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % slides.length;
+        updateImage();
+    });
+    document.getElementById("prev-btn-mobile")?.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        updateImage();
+    });
+
+    document.getElementById("next-btn-mobile")?.addEventListener("click", () => {
         currentIndex = (currentIndex + 1) % slides.length;
         updateImage();
     });
